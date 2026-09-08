@@ -11,7 +11,18 @@ app.get("/", (req, res) => {
         message: "EarthGrid Backend funcionando"
     });
 });
+app.post("/api/sensors/data", (req, res) => {
+    const data = req.body;
 
+    console.log("Datos recibidos:");
+    console.log(data);
+
+    res.json({
+        success: true,
+        message: "Datos recibidos correctamente",
+        data: data
+    });
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
